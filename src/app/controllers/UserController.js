@@ -1,4 +1,5 @@
-import UserModel from '../models/User';
+// import UserModel from '../models/User';
+const UserModel = require('../models/User');
 
 class UserController {
   async registerUser(req, res) {
@@ -70,4 +71,5 @@ class UserController {
   }
 }
 
-export default new UserController();
+// export default new UserController();
+module.exports = new UserController();

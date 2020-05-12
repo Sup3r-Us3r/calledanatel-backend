@@ -1,7 +1,10 @@
-import { Router } from 'express';
+// import { Router } from 'express';
+const Router = require('express').Router;
 
-import UserController from './app/controllers/UserController';
-import ProtocolController from './app/controllers/ProtocolController';
+// import UserController from './app/controllers/UserController';
+// import ProtocolController from './app/controllers/ProtocolController';
+const UserController = require('./app/controllers/UserController');
+const ProtocolController = require('./app/controllers/ProtocolController');
 
 const routes = Router();
 
@@ -19,4 +22,5 @@ routes.delete('/protocol/delete/:id', ProtocolController.deleteProtocol);
 routes.get('/protocols', ProtocolController.listAllProtocols);
 routes.get('/protocol/:anatelprotocol', ProtocolController.listProtocol);
 
-export default routes;
+// export default routes;
+module.exports = routes;

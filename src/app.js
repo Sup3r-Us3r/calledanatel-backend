@@ -1,13 +1,20 @@
-import 'dotenv/config';
+// import 'dotenv/config';
+require('dotenv/config');
 
-import express from 'express';
-import http from 'http';
-import socketio from 'socket.io';
-import cors from 'cors';
+// import express from 'express';
+// import http from 'http';
+// import socketio from 'socket.io';
+// import cors from 'cors';
+const express = require('express');
+const http = require('http');
+const socketio = require('socket.io');
+const cors = require('cors');
 
-import routes from './routes';
+// import routes from './routes';
+const routes = require('./routes');
 
-import './database';
+// import './database';
+require('./database');
 
 class App {
   constructor() {
@@ -43,4 +50,5 @@ class App {
   }
 }
 
-export default new App().httpServer;
+// export default new App().httpServer;
+module.exports = new App().httpServer;

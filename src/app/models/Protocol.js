@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 class Protocol {
   schema() {
@@ -42,4 +43,5 @@ class Protocol {
   }
 }
 
-export default new Protocol().schema();
+// export default new Protocol().schema();
+module.exports = new Protocol().schema();

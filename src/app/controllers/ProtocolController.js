@@ -1,4 +1,5 @@
-import ProtocolModel from '../models/Protocol';
+// import ProtocolModel from '../models/Protocol';
+const ProtocolModel = require('../models/Protocol');
 
 class ProtocolController {
   async registerDataProtocol(req, res) {
@@ -83,4 +84,5 @@ class ProtocolController {
   }
 }
 
-export default new ProtocolController();
+// export default new ProtocolController();
+module.exports = new ProtocolController();
