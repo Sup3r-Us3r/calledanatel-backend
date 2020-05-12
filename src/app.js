@@ -34,7 +34,7 @@ class App {
         io.emit('changeData', response);
       });
 
-      socket.on('disconnect', () => {});
+      socket.on('disconnect', () => console.log('User has left the app'));
     });
   }
 
