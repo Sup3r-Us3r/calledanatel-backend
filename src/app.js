@@ -13,6 +13,9 @@ const cors = require('cors');
 // import routes from './routes';
 const routes = require('./routes');
 
+// import { setUserOnline, getUsersOnline, userLeaves } from './util/getUsersOnline';
+const handleUsers = require('./util/handleUsers');
+
 // import './database';
 require('./database');
 
@@ -37,11 +40,22 @@ class App {
     io.origins('*:*');
 
     io.on('connection', (socket) => {
+      socket.on('userOnline', (response) => {
+        io.emit(
+          'userOnline',
+          handleUsers.setUserOnline({ socketId: socket.id, ...response })
+        );
+      });
+
       socket.on('changeData', (response) => {
         io.emit('changeData', response);
       });
 
-      socket.on('disconnect', () => console.log('User has left the app'));
+      socket.on('disconnect', () => {
+        handleUsers.userLeaves(socket.id);
+
+        io.emit('userOnline', handleUsers.getUsersOnline());
+      });
     });
   }
 
